@@ -16,6 +16,9 @@ function App() {
 
       <h1>Users management server</h1>
       <h3>users count:{users.length}</h3>
+      {
+        users.map(user => <p key={user.id}> {user.id} : {user.name} : {user.email}  </p>)
+      }
 
     </>
   )
