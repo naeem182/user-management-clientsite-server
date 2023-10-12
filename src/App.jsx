@@ -11,11 +11,28 @@ function App() {
 
   }, [])
 
+  const handleadduser = e => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const user = { name, email };
+    console.log(user)
+
+  }
+
   return (
     <>
 
       <h1>Users management server</h1>
       <h3>users count:{users.length}</h3>
+      <form onSubmit={handleadduser}>
+        <input type="text" name='name' id='' /><br />
+        <input type="email" name='email' id='' /><br />
+        <input type="submit" value="Add user" /><br />
+
+
+      </form>
       {
         users.map(user => <p key={user.id}> {user.id} : {user.name} : {user.email}  </p>)
       }
